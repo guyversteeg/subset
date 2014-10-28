@@ -77,17 +77,21 @@ void tekenBord() {
   tekenRaster();
 }
 
+//De functie die bijhoudt hoeveel kaarten er nog gedekt zijn.
+int nGedekteKaarten(String[] gedekteKaarten) {
+  //bla
+}
+
 //De functie die de kaarten op het bord moet leggen.
 String pakKaartVanStapel() {
  //Pak de laatste entry uit gedekteKaarten
- while(nGedekteKaarten > 0) {
+ if(nGedekteKaarten > 0) {
   kaart = gedekteKaarten[nGedektekaarten];
   nGedektekaarten--;
   return kaart;  
  }
- if(nGedekteKaarten <= 0) {
+ else
    println("Er zijn geen kaarten meer in het spel");
- }
 }
  
 //De functie die aangeeft hoeveel kaarten er nog gedekt zijn.
