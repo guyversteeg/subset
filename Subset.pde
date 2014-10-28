@@ -80,7 +80,15 @@ void tekenBord() {
 //De functie die de kaarten op het bord moet leggen.
 String pakKaartVanStapel() {
  //Pak de laatste entry uit gedekteKaarten
+ while(nGedekteKaarten > 0) {
+  kaart = gedekteKaarten[nGedektekaarten];
+  nGedektekaarten--;
+  return kaart;  
  }
+ if(nGedekteKaarten <= 0) {
+   println("Er zijn geen kaarten meer in het spel");
+ }
+}
  
 //De functie die aangeeft hoeveel kaarten er nog gedekt zijn.
 String[] gedekteKaarten(String[] kaarten) {
