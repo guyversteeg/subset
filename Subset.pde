@@ -13,7 +13,7 @@ String[] kaarten = new String[27];
 void setup() {
   size(wBreedte, wHoogte);
   background(#068944);
-  tekenRaster();
+  tekenBord();
   //De array kaarten wordt gevuld door genereerKaarten(eigenschappen)
   kaarten = genereerKaarten(eigenschappen);
   kaarten = schudKaarten(kaarten);
@@ -71,4 +71,23 @@ void tekenRaster() {
  line(0, wHoogte - (wHoogte / 3), wBreedte - 1, wHoogte - (wHoogte / 3));
  line(wBreedte / 3, 0, wBreedte / 3, wHoogte - 1);
  line(wBreedte - (wBreedte / 3), 0, wBreedte - (wBreedte / 3), wHoogte - 1);
+}
+
+void tekenBord() {
+  tekenRaster();
+}
+
+//De functie die de kaarten op het bord moet leggen.
+String pakKaartVanStapel() {
+ //Pak de laatste entry uit gedekteKaarten
+ }
+ 
+//De functie die aangeeft hoeveel kaarten er nog gedekt zijn.
+String[] gedekteKaarten(String[] kaarten) {
+  //bla
+}
+
+//De functie die bijhoudt hoeveel kaarten er nog gedekt zijn.
+int nGedekteKaarten(String[] gedekteKaarten) {
+  //bla
 }
