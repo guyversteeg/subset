@@ -10,7 +10,7 @@ String[] eigenschappen = {"1", "2", "3", "r", "g", "b", "r", "e", "d"};
 String[] kaarten = new String[27];
 int nGedekteKaarten = 26;
 String[] gedekteKaarten = new String[27];
-PImage img;
+String[] kandidaatset = new String[9] ;
 
 
 void setup() {
@@ -23,7 +23,6 @@ void setup() {
   printArray(kaarten);
   printArray(gedekteKaarten());
   println(pakKaartVanStapel(kaarten));
-  img = LoadImage(tekenKaart() + ".jpg");
 }
 
 void draw() {
@@ -112,5 +111,7 @@ String pakKaartVanStapel(String[] kaarten) {
 
 void tekenKaart(String kaart, int bordpositie) {
  String kaartCombinatie = pakKaartVanStapel(kaarten);
- return kaartCombinatie;
+ PImage img;
+ img = LoadImage(kaartCombinatie + ".jpg");
 }
+
