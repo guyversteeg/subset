@@ -9,8 +9,10 @@ int wHoogte = 900;
 String[] eigenschappen = {"1", "2", "3", "r", "g", "b", "r", "e", "d"};
 String[] kaarten = new String[27];
 int nGedekteKaarten = 26;
+int nGeselecteerdePosities = 0;
 String[] gedekteKaarten = new String[27];
 String[] kandidaatset = new String[9] ;
+int score = 0;
 
 
 void setup() {
@@ -130,3 +132,5 @@ else
   isSet = false;
 }
 */
+
+
