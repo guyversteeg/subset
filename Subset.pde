@@ -121,7 +121,7 @@ void tekenKaart(String kaart, int bordpositie) {
     PImage img;
     img = loadImage(kaartCombinatie + ".jpg");
     image(img, 1, 1); 
-    tekenKaart(String kaartenOpTafel[x], x);
+    tekenKaart(String kaartenOpTafel[x], positieX);
 }
 
 
