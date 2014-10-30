@@ -9,6 +9,7 @@ int wHoogte = 900;
 String[] eigenschappen = {"1", "2", "3", "r", "g", "b", "r", "e", "d"};
 String[] kaarten = new String[27];
 int nGedekteKaarten = 27;
+String[] gedekteKaarten = new String[27];
 
 
 void setup() {
@@ -79,25 +80,29 @@ void tekenBord() {
   tekenRaster();
 }
 
-//De functie die aangeeft hoeveel kaarten er nog gedekt zijn.
+//De functie die aangeeft hoeveel kaarten er nog gedekt zijn, ofwel hoeveel kaarten er nog niet in het spel zijn.
 String[] gedekteKaarten() {
   String[] gedekteKaarten = kaarten;
   return gedekteKaarten;
 }
 
+//De functie die bijhoudt hoeveel kaarten er nog gedekt zijn.
+int nGedekteKaarten(String[] gedekteKaarten) {
+  int test = 0;
+  return test;
+}
+
 //De functie die de kaarten op het bord moet leggen.
 String pakKaartVanStapel(String[] kaarten) {
  //Pak de laatste entry uit gedekteKaarten
+ String test = "";
  if(nGedekteKaarten > 0) {
-  kaarten = gedekteKaarten[nGedektekaarten];
-  nGedektekaarten--;
-  return kaarten;  
+  kaarten[nGedekteKaarten] = gedekteKaarten[nGedekteKaarten];
+  nGedekteKaarten--;
+  test = kaarten[nGedekteKaarten];  
  }
- else
+ else {
    println("Er zijn geen kaarten meer in het spel");
-}
-
-//De functie die bijhoudt hoeveel kaarten er nog gedekt zijn.
-int nGedekteKaarten(String[] gedekteKaarten) {
-  //bla
+ }
+ return test;
 }
