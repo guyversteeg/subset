@@ -4,7 +4,7 @@
  */
 
 int wBreedte = 900;
-int wHoogte = 900;
+int wHoogte = 950;
 //Array met alle mogelijke eigenschappen van de kaarten.
 String[] eigenschappen = {"1", "2", "3", "r", "g", "b", "r", "e", "d"};
 String[] kaarten = new String[27];
@@ -12,6 +12,7 @@ int nGedekteKaarten = 26;
 int nGeselecteerdePosities = 0;
 String[] gedekteKaarten = new String[27];
 String[] kandidaatset = new String[9] ;
+String[] kaartenOpTafel = new String[9];
 int score = 0;
 
 
@@ -26,7 +27,6 @@ void setup() {
     printArray(gedekteKaarten());
     println(pakKaartVanStapel(kaarten));
     //tekenKaart(String kaart, int bordpositie);
-    String[] kaartenOpTafel = new String[9];
     for(int x = 0; x < 9; x++) {
         kaartenOpTafel[x]   = pakKaartVanStapel(kaarten);
     }        
@@ -34,6 +34,7 @@ void setup() {
 
 void draw() {
     text("hoi",100,100);
+    weergeefScore();
 }
 
 //Functie die alle mogelijke kaarten gaat genereren.
@@ -81,8 +82,9 @@ String[] schudKaarten(String[] kaarten) {
 void tekenRaster() {
     line(0, wHoogte / 3, wBreedte - 1, wHoogte / 3);
     line(0, wHoogte - (wHoogte / 3), wBreedte - 1, wHoogte - (wHoogte / 3));
-    line(wBreedte / 3, 0, wBreedte / 3, wHoogte - 1);
-    line(wBreedte - (wBreedte / 3), 0, wBreedte - (wBreedte / 3), wHoogte - 1);
+    line(0, wHoogte - 50, wBreedte - 1, wHoogte - 50);
+    line(wBreedte / 3, 0, wBreedte / 3, wHoogte - 50);
+    line(wBreedte - (wBreedte / 3), 0, wBreedte - (wBreedte / 3), wHoogte - 50);
 }
 
 void tekenBord() {
@@ -116,12 +118,14 @@ String pakKaartVanStapel(String[] kaarten) {
     return test;
 }
 
+
 void tekenKaart(String kaart, int bordpositie) {
-    String kaartCombinatie = pakKaartVanStapel(kaarten);
+    String kaartCombinatie = "";
+    kaartCombinatie = pakKaartVanStapel(kaarten);
     PImage img;
     img = loadImage(kaartCombinatie + ".jpg");
     image(img, 1, 1); 
-    tekenKaart(String kaartenOpTafel[x], positieX);
+    tekenKaart(kaartenOpTafel[x], positieX);
 }
 
 
@@ -137,6 +141,10 @@ boolean isSet(String[] kandidaatset) {
     isSet = false;
 }
 */
+
+void weergeefScore() {
+ text("Score: " + score, 30, 930); 
+}
 
 
 
