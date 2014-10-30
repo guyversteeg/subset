@@ -19,6 +19,7 @@ void setup() {
   kaarten = genereerKaarten(eigenschappen);
   kaarten = schudKaarten(kaarten);
   printArray(kaarten);
+  printArray(gedekteKaarten());
 }
 
 void draw() {
@@ -79,8 +80,9 @@ void tekenBord() {
 }
 
 //De functie die aangeeft hoeveel kaarten er nog gedekt zijn.
-String[] gedekteKaarten(String[] kaarten) {
-  //bla
+String[] gedekteKaarten() {
+  String[] gedekteKaarten = kaarten;
+  return gedekteKaarten;
 }
 
 //De functie die de kaarten op het bord moet leggen.
