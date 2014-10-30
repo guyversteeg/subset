@@ -29,6 +29,10 @@ void setup() {
     String[] kaartenOpTafel = new String[9];
     for(int x = 0; x < 9; x++) {
         kaartenOpTafel[x]   = pakKaartVanStapel(kaarten);
+        PImage img;
+        img = loadImage(kaartCombinatie + ".jpg");
+        image(img, 1, 1); 
+        tekenKaart(String kaartenOpTafel[x], x);
     }        
 }
 
@@ -118,9 +122,6 @@ String pakKaartVanStapel(String[] kaarten) {
 
 void tekenKaart(String kaart, int bordpositie) {
     String kaartCombinatie = pakKaartVanStapel(kaarten);
-    PImage img;
-    img = loadImage(kaartCombinatie + ".jpg");
-    image(img, 1, 1);
 }
 
 
