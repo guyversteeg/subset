@@ -8,7 +8,7 @@ int wHoogte = 900;
 //Array met alle mogelijke eigenschappen van de kaarten.
 String[] eigenschappen = {"1", "2", "3", "r", "g", "b", "r", "e", "d"};
 String[] kaarten = new String[27];
-int nGedekteKaarten = 27;
+int nGedekteKaarten = 26;
 String[] gedekteKaarten = new String[27];
 
 
@@ -21,6 +21,7 @@ void setup() {
   kaarten = schudKaarten(kaarten);
   printArray(kaarten);
   printArray(gedekteKaarten());
+  println(pakKaartVanStapel(kaarten));
 }
 
 void draw() {
