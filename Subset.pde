@@ -23,6 +23,7 @@ void setup() {
   printArray(kaarten);
   printArray(gedekteKaarten());
   println(pakKaartVanStapel(kaarten));
+  //tekenKaart(String kaart, int bordpositie);
 }
 
 void draw() {
@@ -112,6 +113,20 @@ String pakKaartVanStapel(String[] kaarten) {
 void tekenKaart(String kaart, int bordpositie) {
  String kaartCombinatie = pakKaartVanStapel(kaarten);
  PImage img;
- img = LoadImage(kaartCombinatie + ".jpg");
+ img = loadImage(kaartCombinatie + ".jpg");
+ image(img, 1, 1);
 }
 
+
+/*
+Pre-conditie: Er is nog niet bekend of de kaartencombinatie een set is.
+Post-conditie: Indien de kaartencombinatie een set is, is de score verhoogd met 1.
+boolean isSet(String[] kandidaatset) {
+ if(kaartencombinatie == kandidaatset) {
+  isSet = true;
+ Score verhogen met 1
+ }
+else
+  isSet = false;
+}
+*/
