@@ -29,6 +29,7 @@ void setup() {
     //tekenKaart(String kaart, int bordpositie);
     for(int x = 0; x < 9; x++) {
         kaartenOpTafel[x]   = pakKaartVanStapel(kaarten);
+        tekenKaart(kaartenOpTafel[x], x);
     }        
 }
 
