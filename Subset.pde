@@ -26,6 +26,10 @@ void setup() {
     printArray(gedekteKaarten());
     println(pakKaartVanStapel(kaarten));
     //tekenKaart(String kaart, int bordpositie);
+    String[] kaartenOpTafel = new String[9];
+    for(int x = 0; x < 9; x++) {
+        kaartenOpTafel[x]   = pakKaartVanStapel(kaarten);
+    }        
 }
 
 void draw() {
@@ -132,5 +136,6 @@ boolean isSet(String[] kandidaatset) {
     isSet = false;
 }
 */
+
 
 
