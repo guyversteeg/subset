@@ -14,6 +14,9 @@ String[] gedekteKaarten = new String[27];
 String[] kandidaatset = new String[9] ;
 String[] kaartenOpTafel = new String[9];
 int score = 0;
+String kaart = "";
+int vakBreedte = 98;
+int vakHoogte = vakBreedte;
 
 
 void setup() {
@@ -22,19 +25,26 @@ void setup() {
     tekenBord();
     //De array kaarten wordt gevuld door genereerKaarten(eigenschappen)
     kaarten = genereerKaarten(eigenschappen);
+    //De array kaarten wordt nu geschud, zodat alle kaarten op een random plek in de array staan.
     kaarten = schudKaarten(kaarten);
     printArray(kaarten);
     printArray(gedekteKaarten());
     println(pakKaartVanStapel(kaarten));
-    //tekenKaart(String kaart, int bordpositie);
-    for(int x = 0; x < 9; x++) {
+    int bordpositie = 1;
+    println(kaart);
+    if (kaart != null) {
+    kaart = pakKaartVanStapel(kaarten);
+    tekenKaart(kaart, bordpositie);
+        for(int x = 0; x < 9; x++) {
         kaartenOpTafel[x]   = pakKaartVanStapel(kaarten);
         tekenKaart(kaartenOpTafel[x], x);
     }        
+    } else {
+      println("Whoops");  
+    }
 }
 
 void draw() {
-    text("hoi",100,100);
     weergeefScore();
 }
 
@@ -99,10 +109,10 @@ String[] gedekteKaarten() {
 }
 
 //De functie die bijhoudt hoeveel kaarten er nog gedekt zijn.
-int nGedekteKaarten(String[] gedekteKaarten) {
-    int test = 0;
-    return test;
-}
+//int nGedekteKaarten(String[] gedekteKaarten) {
+    //int test = 0;
+    //return test;
+//}
 
 //De functie die de kaarten op het bord moet leggen.
 String pakKaartVanStapel(String[] kaarten) {
@@ -116,17 +126,25 @@ String pakKaartVanStapel(String[] kaarten) {
     else {
         println("Er zijn geen kaarten meer in het spel");
     }
+    //println(test);
     return test;
 }
 
-
+/*
+    De functie die bij de kaartcode het bijbehorende plaatje laadt.
+    Pre-conditie: Er is nog geen kaart zichtbaar op het scherm.
+    Post-Conditie: De kaarten zijn zichtbaar op het scherm.
+*/
 void tekenKaart(String kaart, int bordpositie) {
-    String kaartCombinatie = "";
-    kaartCombinatie = pakKaartVanStapel(kaarten);
-    PImage img;
-    img = loadImage(kaartCombinatie + ".jpg");
-    image(img, 1, 1); 
-    tekenKaart(kaartenOpTafel[x], positieX);
+    println(kaart);
+    PImage img = null;
+    if (kaart != null) {
+      img = loadImage(kaart + ".jpg");  
+      image(img, vakBreedte * bordpositie, vakHoogte); 
+      //tekenKaart(kaartenOpTafel[bordpositie], bordpositie);
+    } else {
+      println("Should never happen"); 
+    }
 }
 
 
@@ -134,15 +152,21 @@ void tekenKaart(String kaart, int bordpositie) {
 Pre-conditie: Er is nog niet bekend of de kaartencombinatie een set is.
 Post-conditie: Indien de kaartencombinatie een set is, is de score verhoogd met 1.
 boolean isSet(String[] kandidaatset) {
+    isSet = false;
     if(kaartencombinatie == kandidaatset) {
     isSet = true;
-    Score verhogen met 1
+    score++;
     }
     else
     isSet = false;
 }
 */
 
+/*
+    Deze functie zorgt voor de weergave van de score op het scherm.
+    Pre-conditie: De score begint met 0 en wordt opgehoogd, wanneer er een set geselecteerd is.
+    Post-conditie: De score wordt weergegeven op het scherm.
+*/    
 void weergeefScore() {
  text("Score: " + score, 30, 930); 
 }
